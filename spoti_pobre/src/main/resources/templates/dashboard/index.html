@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SpotiPobre</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+</head>
+
+<body>
+    <header class="topo">
+        <a href="/" class="logo">Spoti<span>Pobre</span></a>
+        <nav>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/playlists/">Playlists</a>
+            <a href="/albuns/">Álbuns</a>
+            <a href="/artistas/">Artistas</a>
+            <a href="/generos/">Gêneros</a>
+            <a href="/">Usuários</a>
+        </nav>
+    </header>
+
+    <div class="container largo">
+        <h1>Dashboard - Álbuns e Músicas</h1>
+
+        <div class="tabela">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Álbum</th>
+                        <th>Música</th>
+                        <th>Duração</th>
+                        <th>Ouvir</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#vetMusica}}
+                    <tr>
+                        <td class="fraco">{{album.titulo}}</td>
+                        <td class="musica">{{nome}}</td>
+                        <td class="fraco">{{duracaoFormatada}}</td>
+                        <td>
+                            <form action="/reproduzir" method="post" class="ouvir">
+                                <input type="hidden" name="musica_id" value="{{id}}">
+                                <select name="usuario_id" required>
+                                    {{#vetUsuario}}
+                                    <option value="{{id}}">{{nome}}</option>
+                                    {{/vetUsuario}}
+                                </select>
+                                <button type="submit" class="btn btn-principal">▶ Ouvir</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {{/vetMusica}}
+                    {{^vetMusica}}
+                    <tr>
+                        <td colspan="4">Nenhuma música cadastrada em álbum.</td>
+                    </tr>
+                    {{/vetMusica}}
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Últimas reproduções</h2>
+        <div class="tabela">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Usuário</th>
+                        <th>Música</th>
+                        <th>Quando</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#vetReproducao}}
+                    <tr>
+                        <td>{{usuario.nome}}</td>
+                        <td class="musica">{{musica.nome}}</td>
+                        <td class="fraco">{{quandoFormatado}}</td>
+                    </tr>
+                    {{/vetReproducao}}
+                    {{^vetReproducao}}
+                    <tr>
+                        <td colspan="3">Nenhuma reprodução registrada.</td>
+                    </tr>
+                    {{/vetReproducao}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

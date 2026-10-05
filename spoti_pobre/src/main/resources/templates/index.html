@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários - SpotiPobre</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+</head>
+
+<body>
+    <header class="topo">
+        <a href="/" class="logo">Spoti<span>Pobre</span></a>
+        <nav>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/playlists/">Playlists</a>
+            <a href="/albuns/">Álbuns</a>
+            <a href="/artistas/">Artistas</a>
+            <a href="/generos/">Gêneros</a>
+            <a href="/">Usuários</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Usuários</h1>
+
+        <ul class="lista">
+            {{#vetUsuario}}
+            <li>
+                <span class="item-nome">
+                    {{nome}}
+                    <span class="item-detalhe">{{email}}</span>
+                </span>
+                <div class="acoes">
+                    <a href="/usuarios/tela_alterar/{{id}}" class="btn btn-editar">Alterar</a>
+                    <a href="/usuarios/excluir/{{id}}" class="btn btn-excluir">Excluir</a>
+                </div>
+            </li>
+            {{/vetUsuario}}
+        </ul>
+
+        <a href="/usuarios/tela_adicionar" class="btn btn-principal btn-grande">+ Adicionar Usuário</a>
+    </div>
+</body>
+
+</html>

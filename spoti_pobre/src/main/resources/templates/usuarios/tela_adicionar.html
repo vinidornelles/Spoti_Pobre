@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Usuário - SpotiPobre</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+</head>
+
+<body>
+    <header class="topo">
+        <a href="/" class="logo">Spoti<span>Pobre</span></a>
+        <nav>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/playlists/">Playlists</a>
+            <a href="/albuns/">Álbuns</a>
+            <a href="/artistas/">Artistas</a>
+            <a href="/generos/">Gêneros</a>
+            <a href="/">Usuários</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Adicionar Usuário</h1>
+
+        <form action="/usuarios/adicionar" method="post">
+            <div class="campo">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite o nome completo" required>
+            </div>
+
+            <div class="campo">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
+            </div>
+
+            <div class="campo">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="••••••••" required>
+            </div>
+
+            <div class="campo">
+                <label for="data_nascimento">Data de Nascimento</label>
+                <input type="date" id="data_nascimento" name="data_nascimento" required>
+            </div>
+
+            <div class="botoes">
+                <a href="/" class="btn btn-voltar">Voltar</a>
+                <button type="submit" class="btn btn-principal">Adicionar</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

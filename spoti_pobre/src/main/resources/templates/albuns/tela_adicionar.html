@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Álbum - SpotiPobre</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+</head>
+
+<body>
+    <header class="topo">
+        <a href="/" class="logo">Spoti<span>Pobre</span></a>
+        <nav>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/playlists/">Playlists</a>
+            <a href="/albuns/">Álbuns</a>
+            <a href="/artistas/">Artistas</a>
+            <a href="/generos/">Gêneros</a>
+            <a href="/">Usuários</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Adicionar Álbum</h1>
+
+        <form action="/albuns/adicionar" method="post">
+            <div class="campo">
+                <label for="titulo">Título</label>
+                <input type="text" id="titulo" name="titulo" placeholder="Digite o título" required>
+            </div>
+
+            <div class="campo">
+                <label for="data_lancamento">Data de Lançamento</label>
+                <input type="date" id="data_lancamento" name="data_lancamento" required>
+            </div>
+
+            <div class="campo">
+                <label for="artista_id">Artista</label>
+                <select id="artista_id" name="artista_id" required>
+                    {{#vetArtista}}
+                    <option value="{{id}}">{{nome}}</option>
+                    {{/vetArtista}}
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="genero_id">Gênero</label>
+                <select id="genero_id" name="genero_id" required>
+                    {{#vetGenero}}
+                    <option value="{{id}}">{{nome}}</option>
+                    {{/vetGenero}}
+                </select>
+            </div>
+
+            <div class="botoes">
+                <a href="/albuns/" class="btn btn-voltar">Voltar</a>
+                <button type="submit" class="btn btn-principal">Adicionar</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

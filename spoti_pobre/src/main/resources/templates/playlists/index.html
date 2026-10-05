@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlists - SpotiPobre</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+</head>
+
+<body>
+    <header class="topo">
+        <a href="/" class="logo">Spoti<span>Pobre</span></a>
+        <nav>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/playlists/">Playlists</a>
+            <a href="/albuns/">Álbuns</a>
+            <a href="/artistas/">Artistas</a>
+            <a href="/generos/">Gêneros</a>
+            <a href="/">Usuários</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Playlists</h1>
+
+        <ul class="lista">
+            {{#vetPlaylist}}
+            <li>
+                <span class="item-nome">
+                    {{nome}}
+                    <span class="item-detalhe">Dono: {{dono.nome}}</span>
+                </span>
+                {{#publica}}<span class="tag tag-publica">Pública</span>{{/publica}}
+                {{^publica}}<span class="tag tag-privada">Privada</span>{{/publica}}
+            </li>
+            {{/vetPlaylist}}
+            {{^vetPlaylist}}
+            <li>Nenhuma playlist cadastrada.</li>
+            {{/vetPlaylist}}
+        </ul>
+
+        <a href="/playlists/nova" class="btn btn-principal btn-grande">+ Nova Playlist</a>
+    </div>
+</body>
+
+</html>
